@@ -1,58 +1,72 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Api from '../api/Api';
 import { Table, Card, Container, Row, Col } from 'react-bootstrap';
 
 export default function Statistics() {
+    const [statistics, setStatistics] = useState([]);
+
+    useEffect(() => {
+        fetchPokemon();
+    })
+
+    async function fetchPokemon() {
+        const response = await Api.get("/");
+        setStatistics(response.data);
+    }
+
     return (
         <div>
             <h2>Statistics</h2>
-            <Container>
-                <Row>
-                    <Col>
-                        <Card>
-                            <Card.Img variant="top" src="logo192.png" />
-                            <Card.Body>
-                                <Card.Title>Name:</Card.Title>
-                                <Card.Text>Front</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
+            {statistics.map((i) => (
+                <Container>
+                    <Row>
+                        <Col>
+                            <Card>
+                                <Card.Img variant="top" src="logo192.png" />
+                                <Card.Body>
+                                    <Card.Title>Name:{i.name}</Card.Title>
+                                    <Card.Text>Front</Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
 
-                    <Col>
-                        <Card>
-                            <Card.Img variant="top" src="logo192.png" />
-                            <Card.Body>
-                                <Card.Title>Name:</Card.Title>
-                                <Card.Text>Back</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
+                        <Col>
+                            <Card>
+                                <Card.Img variant="top" src="logo192.png" />
+                                <Card.Body>
+                                    <Card.Title>Name:</Card.Title>
+                                    <Card.Text>Back</Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    </Row>
 
-                <Row>
-                    <Col>
-                        <Card>
-                            <Card.Img variant="top" src="logo192.png" />
-                            <Card.Body>
-                                <Card.Title>Name:</Card.Title>
-                                <Card.Text>Shiny Front</Card.Text>
-                            </Card.Body>
-                        </Card>
+                    <Row>
+                        <Col>
+                            <Card>
+                                <Card.Img variant="top" src="logo192.png" />
+                                <Card.Body>
+                                    <Card.Title>Name:</Card.Title>
+                                    <Card.Text>Shiny Front</Card.Text>
+                                </Card.Body>
+                            </Card>
 
-                    </Col>
+                        </Col>
 
-                    <Col>
+                        <Col>
 
-                        <Card>
-                            <Card.Img variant="top" src="logo192.png" />
-                            <Card.Body>
-                                <Card.Title>Name:</Card.Title>
-                                <Card.Text>Shiny Back</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
+                            <Card>
+                                <Card.Img variant="top" src="logo192.png" />
+                                <Card.Body>
+                                    <Card.Title>Name:</Card.Title>
+                                    <Card.Text>Shiny Back</Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
 
-                </Row>
-            </Container>
+                    </Row>
+                </Container>
+            ))}
             <br />
 
             <Table striped bordered hover>
