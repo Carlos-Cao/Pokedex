@@ -1,10 +1,16 @@
 import './App.css';
+import './api/Api';
+import Header from './components/Header';
+import Search from './components/Search';
+import Statistics from './components/Statistics';
 
 function App() {
   return (
     <div>
-      <h1>Pokedex</h1>
-    </div>
+      <Header />
+      <Search />
+      <Statistics />
+    </div >
   );
 }
 
