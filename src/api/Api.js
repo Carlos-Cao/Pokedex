@@ -5,7 +5,7 @@ const Api = axios.create({
         'Content-Type': 'application/json',
         'Accept': 'application/json'
     },
-    baseURL: "https://pokeapi.co/api/v2/pokemon/charizard"
+    baseURL: "https://pokeapi.co/api/v2/pokemon/rayquaza"
 })
 
 export default Api;

@@ -4,6 +4,14 @@ import { Table, Card, Container, Row, Col } from 'react-bootstrap';
 
 export default function Statistics() {
     const [statistics, setStatistics] = useState([]);
+    const [type, setType] = useState("");
+    const [ability, setAbility] = useState("");
+    const [hp, setHp] = useState("");
+    const [attack, setAttack] = useState("");
+    const [defense, setDefense] = useState("");
+    const [specialAtk, setSpecialAtk] = useState("");
+    const [specialDef, setSpecialDef] = useState("");
+    const [speed, setSpeed] = useState("");
 
     useEffect(() => {
         fetchPokemon();
@@ -12,9 +20,17 @@ export default function Statistics() {
     async function fetchPokemon() {
         const toArray = [];
         const response = await Api.get("/");
-        toArray.push(response.data)
+        setType(response.data.types[0].type.name);
+        setAbility(response.data.abilities[0].ability.name);
+        setHp(response.data.stats[0].base_stat);
+        setAttack(response.data.stats[1].base_stat);
+        setDefense(response.data.stats[2].base_stat);
+        setSpecialAtk(response.data.stats[3].base_stat);
+        setSpecialDef(response.data.stats[4].base_stat);
+        setSpeed(response.data.stats[5].base_stat);
+        toArray.push(response.data);
         setStatistics(toArray);
-        console.log(response);
+        console.log(toArray);
     }
 
     return (
@@ -82,11 +98,36 @@ export default function Statistics() {
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>{type[0].toUpperCase() + type.slice(1)}</td>
+                                <td>{ability[0].toUpperCase() + ability.slice(1)}</td>
                                 <td>{i.order}</td>
                                 <td>{i.height}</td>
                                 <td>{i.weight}</td>
+                            </tr>
+                        </tbody>
+                    </Table>
+
+
+                    <h4>Base Stats</h4>
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>HP</th>
+                                <th>Attack</th>
+                                <th>Defense</th>
+                                <th>Sp.Atk</th>
+                                <th>Sp.Def</th>
+                                <th>Speed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{hp}</td>
+                                <td>{attack}</td>
+                                <td>{defense}</td>
+                                <td>{specialAtk}</td>
+                                <td>{specialDef}</td>
+                                <td>{speed}</td>
                             </tr>
                         </tbody>
                     </Table>
@@ -142,10 +183,9 @@ export default function Statistics() {
                     </Table>
                 </div>
             ))}
-
-
             <hr />
-
         </div >
+
     )
+
 }
