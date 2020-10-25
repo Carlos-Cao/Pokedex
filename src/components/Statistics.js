@@ -66,82 +66,86 @@ export default function Statistics() {
                             </Col>
                         </Row>
                     </Container>
+
+                    <br />
+
+                    <h4>Pokemon Statistics</h4>
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Ability</th>
+                                <th>Pokedex #</th>
+                                <th>Height</th>
+                                <th>Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>{i.order}</td>
+                                <td>{i.height}</td>
+                                <td>{i.weight}</td>
+                            </tr>
+                        </tbody>
+                    </Table>
+
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Ability</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                            </tr>
+                            <tr>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                            </tr>
+                            <tr>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                            </tr>
+                            <tr>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                            </tr>
+                            <tr>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                                <td>Data1</td>
+                            </tr>
+                        </tbody>
+                    </Table>
                 </div>
             ))}
-            <br />
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                        <th>5</th>
-                    </tr>
-                </thead>
 
-                <tbody>
-                    <tr>
-                        <td>Ability</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                    </tr>
-                </tbody>
-            </Table>
-
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                        <th>5</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>Ability</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                    </tr>
-                    <tr>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                    </tr>
-                    <tr>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                    </tr>
-                    <tr>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                    </tr>
-                    <tr>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                        <td>Data1</td>
-                    </tr>
-                </tbody>
-            </Table>
 
             <hr />
+
         </div >
     )
 }
