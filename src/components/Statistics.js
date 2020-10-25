@@ -19,17 +19,17 @@ export default function Statistics() {
 
     return (
         <div>
-            <h2>Statistics</h2>
             {statistics.map((i) => (
                 <div key={i.id}>
                     <Container>
+                        <h2><u>Statistics</u></h2>
+                        <h3> Name: {i.name[0].toUpperCase() + i.name.slice(1)}</h3>
                         <Row>
                             <Col>
                                 <Card>
                                     <Card.Img variant="top" src={i.sprites["front_default"]} />
                                     <Card.Body>
-                                        <Card.Title>Name: {i.name}</Card.Title>
-                                        <Card.Text>Front</Card.Text>
+                                        <Card.Title>Front</Card.Title>
                                     </Card.Body>
                                 </Card>
                             </Col>
@@ -38,8 +38,7 @@ export default function Statistics() {
                                 <Card>
                                     <Card.Img variant="top" src={i.sprites["back_default"]} />
                                     <Card.Body>
-                                        <Card.Title>Name: {i.name}</Card.Title>
-                                        <Card.Text>Back</Card.Text>
+                                        <Card.Title>Back</Card.Title>
                                     </Card.Body>
                                 </Card>
                             </Col>
@@ -50,8 +49,7 @@ export default function Statistics() {
                                 <Card>
                                     <Card.Img variant="top" src={i.sprites["front_shiny"]} />
                                     <Card.Body>
-                                        <Card.Title>Name: {i.name}</Card.Title>
-                                        <Card.Text>Shiny Front</Card.Text>
+                                        <Card.Title>Shiny Front</Card.Title>
                                     </Card.Body>
                                 </Card>
 
@@ -62,22 +60,19 @@ export default function Statistics() {
                                 <Card>
                                     <Card.Img variant="top" src={i.sprites["back_shiny"]} />
                                     <Card.Body>
-                                        <Card.Title>Name: {i.name}</Card.Title>
-                                        <Card.Text>Shiny Back</Card.Text>
+                                        <Card.Title>Shiny Back</Card.Title>
                                     </Card.Body>
                                 </Card>
                             </Col>
-
                         </Row>
                     </Container>
                 </div>
             ))}
             <br />
-
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>1</th>
+                        <th></th>
                         <th>2</th>
                         <th>3</th>
                         <th>4</th>
@@ -87,7 +82,29 @@ export default function Statistics() {
 
                 <tbody>
                     <tr>
+                        <td>Ability</td>
                         <td>Data1</td>
+                        <td>Data1</td>
+                        <td>Data1</td>
+                        <td>Data1</td>
+                    </tr>
+                </tbody>
+            </Table>
+
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Ability</td>
                         <td>Data1</td>
                         <td>Data1</td>
                         <td>Data1</td>
