@@ -10,62 +10,67 @@ export default function Statistics() {
     })
 
     async function fetchPokemon() {
+        const toArray = [];
         const response = await Api.get("/");
-        setStatistics(response.data);
+        toArray.push(response.data)
+        setStatistics(toArray);
+        console.log(response);
     }
 
     return (
         <div>
             <h2>Statistics</h2>
             {statistics.map((i) => (
-                <Container>
-                    <Row>
-                        <Col>
-                            <Card>
-                                <Card.Img variant="top" src="logo192.png" />
-                                <Card.Body>
-                                    <Card.Title>Name:{i.name}</Card.Title>
-                                    <Card.Text>Front</Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                <div key={i.id}>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <Card>
+                                    <Card.Img variant="top" src={i.sprites["front_default"]} />
+                                    <Card.Body>
+                                        <Card.Title>Name: {i.name}</Card.Title>
+                                        <Card.Text>Front</Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
 
-                        <Col>
-                            <Card>
-                                <Card.Img variant="top" src="logo192.png" />
-                                <Card.Body>
-                                    <Card.Title>Name:</Card.Title>
-                                    <Card.Text>Back</Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    </Row>
+                            <Col>
+                                <Card>
+                                    <Card.Img variant="top" src={i.sprites["back_default"]} />
+                                    <Card.Body>
+                                        <Card.Title>Name: {i.name}</Card.Title>
+                                        <Card.Text>Back</Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        </Row>
 
-                    <Row>
-                        <Col>
-                            <Card>
-                                <Card.Img variant="top" src="logo192.png" />
-                                <Card.Body>
-                                    <Card.Title>Name:</Card.Title>
-                                    <Card.Text>Shiny Front</Card.Text>
-                                </Card.Body>
-                            </Card>
+                        <Row>
+                            <Col>
+                                <Card>
+                                    <Card.Img variant="top" src={i.sprites["front_shiny"]} />
+                                    <Card.Body>
+                                        <Card.Title>Name: {i.name}</Card.Title>
+                                        <Card.Text>Shiny Front</Card.Text>
+                                    </Card.Body>
+                                </Card>
 
-                        </Col>
+                            </Col>
 
-                        <Col>
+                            <Col>
 
-                            <Card>
-                                <Card.Img variant="top" src="logo192.png" />
-                                <Card.Body>
-                                    <Card.Title>Name:</Card.Title>
-                                    <Card.Text>Shiny Back</Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </Col>
+                                <Card>
+                                    <Card.Img variant="top" src={i.sprites["back_shiny"]} />
+                                    <Card.Body>
+                                        <Card.Title>Name: {i.name}</Card.Title>
+                                        <Card.Text>Shiny Back</Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
 
-                    </Row>
-                </Container>
+                        </Row>
+                    </Container>
+                </div>
             ))}
             <br />
 
