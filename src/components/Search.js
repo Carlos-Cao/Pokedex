@@ -3,7 +3,7 @@ import { InputGroup, Button, FormControl } from "react-bootstrap";
 import Statistics from "./Statistics";
 
 const Search = (props) => {
-  const [SearchQuery, setSearchQuery] = useState("Pikachu");
+  const [SearchQuery, setSearchQuery] = useState("pikachu");
   const [input, setInput] = useState("");
 
   const handleSubmit = () => {
@@ -32,7 +32,7 @@ const Search = (props) => {
           </Button>
         </InputGroup.Append>
       </InputGroup>
-      <Statistics SearchQuery={SearchQuery} />
+      <Statistics SearchQuery={SearchQuery.toLowerCase()} />
     </div>
   );
 };
