@@ -5,7 +5,7 @@ export default function header() {
   return (
     <div>
       <Navbar bg="dark" variant="light">
-        <h1 className="title shadow">Pokedex</h1>
+        <h1 className="title shadow">Pokédex</h1>
       </Navbar>
       <hr />
     </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Api from "../api/Api";
-import { Table, Card, Container, Row, Col } from "react-bootstrap";
+import { Table, Card, Container, Row, Col, ProgressBar } from "react-bootstrap";
 
 const Statistics = (props) => {
   const [statistics, setStatistics] = useState([]);
@@ -16,7 +16,6 @@ const Statistics = (props) => {
   useEffect(() => {
     fetchPokemon();
   });
-
   async function fetchPokemon() {
     const toArray = [];
     const response = await Api.get("/" + props.SearchQuery);
@@ -30,7 +29,6 @@ const Statistics = (props) => {
     setSpeed(response.data.stats[5].base_stat);
     toArray.push(response.data);
     setStatistics(toArray);
-    console.log(toArray);
   }
 
   return (
@@ -39,7 +37,7 @@ const Statistics = (props) => {
         <div key={i.id}>
           <Container>
             <h2>
-              <u>Statistics</u>
+              <u>Pokémon</u>
             </h2>
             <h3> Name: {i.name[0].toUpperCase() + i.name.slice(1)}</h3>
             <Row>
@@ -82,10 +80,9 @@ const Statistics = (props) => {
               </Col>
             </Row>
           </Container>
-
           <br />
+          <h4>Pokémon Statistics</h4>
 
-          <h4>Pokemon Statistics</h4>
           <Table striped bordered hover>
             <thead>
               <tr>
@@ -108,78 +105,22 @@ const Statistics = (props) => {
           </Table>
 
           <h4>Base Stats</h4>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>HP</th>
-                <th>Attack</th>
-                <th>Defense</th>
-                <th>Sp.Atk</th>
-                <th>Sp.Def</th>
-                <th>Speed</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{hp}</td>
-                <td>{attack}</td>
-                <td>{defense}</td>
-                <td>{specialAtk}</td>
-                <td>{specialDef}</td>
-                <td>{speed}</td>
-              </tr>
-            </tbody>
-          </Table>
-
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th></th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>Ability</td>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-              </tr>
-              <tr>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-              </tr>
-              <tr>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-              </tr>
-              <tr>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-              </tr>
-              <tr>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-                <td>Data1</td>
-              </tr>
-            </tbody>
-          </Table>
+          <Card>
+            <Card.Body>
+              <strong>HP</strong>
+              <ProgressBar now={hp} max={255} label={hp} />
+              <strong>Attack</strong>
+              <ProgressBar now={attack} max={255} label={attack} />
+              <strong>Defense</strong>
+              <ProgressBar now={defense} max={255} label={defense} />
+              <strong>Sp.Atk</strong>
+              <ProgressBar now={specialAtk} max={255} label={specialAtk} />
+              <strong>Sp.Def</strong>
+              <ProgressBar now={specialDef} max={255} label={specialDef} />
+              <strong>Speed</strong>
+              <ProgressBar now={speed} max={255} label={speed} />
+            </Card.Body>
+          </Card>
         </div>
       ))}
     </div>
